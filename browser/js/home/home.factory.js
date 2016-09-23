@@ -4,6 +4,9 @@ app.factory('HomeFactory', function($http){
 			return $http.get('/api/tasks')
 		},
 		addTask: function(){
+			// console.log(req.body.data)
+			// this.taskArray.push(req.body.data)
+			// console.log("comasomda", this.taskArray)
 			return $http.post('/api/tasks')
 		},
 		deleteComplete: function(){
@@ -11,14 +14,19 @@ app.factory('HomeFactory', function($http){
 			return $http.delete('/api/tasks')
 		},
 		launch: function(){
-			console.log("LOL")
+
 		},
 		shake: function(){
 
 		},
+		taskToComplete: function(task){
+			// return $http.get('/api/tasks')
+		},
 		checkBox: function(task){
+			// console.log("asdad",this.taskArray)
 			this.launch()
 			this.shake()
+			// this.taskToComplete(task)
 			return $http.put('/api/tasks/' + task.id, {done: !task.done})
 		}
 	}

@@ -1,47 +1,54 @@
 <div layout="column" ng-cloak class="md-inline-form">
 
-  
-  <!-- <h3 style="text-align: center;">Your Tasks</h3> -->
-  <h1 class="animated infinite bounce">Example</h1>
-  <legend style="text-align: center;">Your Tasks</legend>
-  <!-- <md-divider></md-divider> -->
-	<md-list-item 
-	ng-hide="task.done" 
-	class="secondary-button-padding" 
-	ng-click="showDetails(task.title,task.description)" 
-	ng-repeat="task in tasks">
 
-	    <p>{{task.title}}</p>
-	    <md-checkbox 
-	    class="md-secondary"
-	    ng-click="checkbox(task); test"></md-checkbox>
+<!-- <h3 style="text-align: center;">Your Tasks</h3> -->
+	<h1 class="animated infinite bounce">Example</h1>
+	<div 
+	layout="column" 
+	ng-cloak 
+	class="md-inline-form">
+	<!-- <a href="http://192.168.1.101:8080/" ui-sref='home'>TEST</a> -->
+		<legend style="text-align: center;">Your Tasks</legend>
+<!-- <md-divider></md-divider> -->
+<!-- <button ng-click='testFunc()'>TEST</button> -->
+		<md-list-item 
+		ng-hide="task.done" 
+		class="secondary-button-padding" 
+		ng-click="showDetails(task.title,task.description)" 
+		ng-repeat="task in tasks">
 
-	  </md-list-item>
+		<p>{{task.title}}</p>
+		<md-checkbox 
+		class="md-secondary"
+		ng-click="checkbox(task); test"></md-checkbox>
 
-        <md-button 
-        class="md-raised md-warn" 
-        ui-sref='addTask'>+ Add new task</md-button>
+		</md-list-item>
+		</div>
+		<md-button 
+		class="md-raised md-warn" 
+		ui-sref='addTask'>+ Add new task</md-button>
 
-        <md-divider></md-divider>
+		
+		
 
-        <!-- <h3 style="text-align: center;">Completed</h3> -->
-        <legend style="text-align: center; margin-top: 20px">Completed</legend>
+		<legend style="text-align: center; margin-top: 20px">Completed</legend>
 
-        <md-list-item 
-        ng-show="task.done" 
-        class="secondary-button-padding" 
-        ng-click="showDetails(task.title,task.description)" 
-        ng-repeat="task in tasks">
+		<md-list-item 
+		ng-show="task.done" 
+		class="secondary-button-padding" 
+		ng-click="showDetails(task.title,task.description)" 
+		ng-repeat="task in tasks">
 
-            <p>{{task.title}}</p>
-            <md-checkbox 
-            class="md-secondary" 
-            ng-model="task.done"></md-checkbox>
+		<p>{{task.title}}</p>
+		<md-checkbox 
+		class="md-secondary" 
+		ng-model="task.done"></md-checkbox>
 
-          </md-list-item>
+		</md-list-item>
 
-          <md-button 
-          class="md-accent" 
-          ng-click="clear()">Remove Completed Tasks</md-button>
-
+		<md-button 
+		class="md-accent" 
+		ng-click="clear()">Remove Completed Tasks</md-button>
+	
+	</div>
 </div>

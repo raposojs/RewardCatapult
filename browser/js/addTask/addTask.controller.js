@@ -1,8 +1,9 @@
 'use strict';
 
-app.controller('AddTaskCtrl', function($scope, $http, $state, $mdDialog, AddTaskFactory){
+app.controller('AddTaskCtrl', function($scope, $http, $state, $mdDialog, AddTaskFactory, HomeFactory){
 
 	// $scope.tasks = tasks.data
+	// $scope.taskArray = HomeFactory.taskArray
 
 	$scope.addNewTask = function(){
 		
@@ -13,7 +14,7 @@ app.controller('AddTaskCtrl', function($scope, $http, $state, $mdDialog, AddTask
 
 		AddTaskFactory.createTask(newTask)
 			.then(function(taskCreated){
-				console.log(taskCreated)
+				// $scope.taskArray.push(taskCreated.data)
 				$state.go('home')
 			})
 			.catch(console.error.bind(console))

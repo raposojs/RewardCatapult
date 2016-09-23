@@ -1,5 +1,6 @@
 'use strict';
 var router = require('express').Router(); // eslint-disable-line new-cap
+var http = require('http')
 module.exports = router;
 
 var Tasks = require('../../../db/models/tasks.js')
@@ -7,7 +8,7 @@ var Tasks = require('../../../db/models/tasks.js')
 router.get('/', function(req,res,next){
 	Tasks.findAll({})
 		.then(function(allTasks){
-			console.log(allTasks)
+			// console.log(allTasks)
 			res.json(allTasks)
 		})
 })
@@ -34,4 +35,13 @@ router.delete('/', function(req,res,next){
 			done: true
 		}
 	})
+		.then(function(test){
+			console.log(test)
+		})
+})
+
+router.get('/servo', function(req,res,next){
+	console.log("servo hit")
+	http.request({host: '192.168.1.101', port: '8080'}).end()
+	res.send('Servo in motion')
 })

@@ -5,10 +5,6 @@ var servo = servolib.use(tessel.port['A']);
 
 var servo1 = 1; // We have a servo plugged in at position 1
 
-var test = function(){
-  console.log("GOOD")
-}
-
 servo.on('ready', function () {
   var position = 0;  //  Target position of the servo between 0 (min) and 1 (max).
 
@@ -18,25 +14,16 @@ servo.on('ready', function () {
   //  Moving them towards each other = less movement range
   //  Moving them apart = more range, more likely to stall and burn out
   servo.configure(servo1, 0.05, 0.12, function () {
-    servo.move(servo1, position)
+    setInterval(function () {
+      console.log('Position (in range 0-1):', position);
+      //  Set servo #1 to position pos.
+      servo.move(servo1, position);
 
-    setTimeout(function(){
-      servo.move(servo1, 0.99)
-    }, 2000)
-
-    setTimeout(function(){
-      servo.move(servo1, 0)
-    }, 2000)
-    // setInterval(function () {
-    //   console.log('Position (in range 0-1):', position);
-    //   //  Set servo #1 to position pos.
-    //   servo.move(servo1, position);
-
-    //   // Increment by 10% (~18 deg for a normal servo)
-    //   position += 0.1;
-    //   if (position > 1) {
-    //     position = 0; // Reset servo position
-    //   }
-    // }, 100); // Every 500 milliseconds
+      // Increment by 10% (~18 deg for a normal servo)
+      position += 0.1;
+      if (position > 1) {
+        position = 0; // Reset servo position
+      }
+    }, 500); // Every 500 milliseconds
   });
 });

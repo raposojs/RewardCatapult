@@ -1,0 +1,24 @@
+<div layout="column" ng-cloak class="md-inline-form">
+
+<form name="newTaskForm" ng-submit="addNewTask()">
+  <md-content layout-gt-sm="row" layout-padding>
+    <div>
+      <md-input-container>
+        <label>Task Title</label>
+        <input ng-model="task.title" md-maxlength="20" required>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Task Description</label>
+        <textarea ng-model="task.description" md-maxlength="100" rows="3" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+  </md-content>
+  <div layout="column">
+    <md-button type="submit" class="md-raised md-primary">Add to task list</md-button>        
+  </div>
+</form>
+
+
+
+</div>

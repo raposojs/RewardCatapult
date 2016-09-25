@@ -26,21 +26,21 @@ var Promise = require('sequelize').Promise;
 var seedUsers = function () {
 
     var tasks = [
-        {
-            title: 'Bake cake',
-            description: 'Bake cake for my brother',
-            done: false
-        },
-        {
-            title: 'Look for a job',
-            description: 'Gotta make that monneeeyy',
-            done: false
-        },
-        {
-            title: 'Procrastinate',
-            description: 'Just kidding!',
-            done: false
-        }
+        // {
+        //     title: 'Bake cake',
+        //     description: 'Bake cake for my brother',
+        //     done: false
+        // },
+        // {
+        //     title: 'Look for a job',
+        //     description: 'Gotta make that monneeeyy',
+        //     done: false
+        // },
+        // {
+        //     title: 'Procrastinate',
+        //     description: 'Just kidding!',
+        //     done: false
+        // }
     ];
 
     var creatingTasks = tasks.map(function (tasksObj) {

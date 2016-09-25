@@ -2,7 +2,7 @@
 
 
 <!-- <h3 style="text-align: center;">Your Tasks</h3> -->
-	<h1 class="animated infinite bounce">Example</h1>
+	<!-- <h1 class="animated infinite shake ">Example</h1> -->
 	<div 
 	layout="column" 
 	ng-cloak 
@@ -12,12 +12,17 @@
 <!-- <md-divider></md-divider> -->
 <!-- <button ng-click='testFunc()'>TEST</button> -->
 		<md-list-item 
-		ng-hide="task.done" 
-		class="secondary-button-padding" 
+		ng-hide="task.done || task.complete"  
 		ng-click="showDetails(task.title,task.description)" 
-		ng-repeat="task in tasks">
+		ng-repeat="task in tasks"
+		class="secondary-button-padding"
+		ng-class="{'animated':task, 'infinite':task.shaky, 'shake': task.shaky, 'rotateOutUpRight': task.byebye}"
+		>
 
-		<p>{{task.title}}</p>
+		<p 
+		 class=" animated infinite"
+		 ng-class="{}">{{task.title}}</p>
+
 		<md-checkbox 
 		class="md-secondary"
 		ng-click="checkbox(task); test"></md-checkbox>
@@ -26,29 +31,30 @@
 		</div>
 		<md-button 
 		class="md-raised md-warn" 
-		ui-sref='addTask'>+ Add new task</md-button>
+		ui-sref='addTask'
+		>+ Add new task</md-button>
 
 		
-		
+		<div ng-show="showCompleted">
 
 		<legend style="text-align: center; margin-top: 20px">Completed</legend>
 
 		<md-list-item 
-		ng-show="task.done" 
+		ng-show="task.done || task.complete" 
 		class="secondary-button-padding" 
 		ng-click="showDetails(task.title,task.description)" 
 		ng-repeat="task in tasks">
 
 		<p>{{task.title}}</p>
-		<md-checkbox 
-		class="md-secondary" 
-		ng-model="task.done"></md-checkbox>
+
 
 		</md-list-item>
 
 		<md-button 
 		class="md-accent" 
-		ng-click="clear()">Remove Completed Tasks</md-button>
+		ng-click="clear() ; showCompletedToFalse()">Remove Completed Tasks</md-button>
 	
+		</div>
+
 	</div>
 </div>

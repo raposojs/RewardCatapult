@@ -9,25 +9,26 @@ app.factory('HomeFactory', function($http){
 			// console.log("comasomda", this.taskArray)
 			return $http.post('/api/tasks')
 		},
-		deleteComplete: function(){
-			console.log("DELETEEE")
-			return $http.delete('/api/tasks')
-		},
-		launch: function(){
+		// deleteComplete: function(){
+		// 	console.log("DELETEEE")
+		// 	return $http.delete('/api/tasks')
+		// },
+		// launch: function(){
+		// 	return $http.get('api/tasks/servo')
+		// },
+		// shake: function(){
 
-		},
-		shake: function(){
-
-		},
-		taskToComplete: function(task){
-			// return $http.get('/api/tasks')
-		},
-		checkBox: function(task){
-			// console.log("asdad",this.taskArray)
-			this.launch()
-			this.shake()
-			// this.taskToComplete(task)
-			return $http.put('/api/tasks/' + task.id, {done: !task.done})
-		}
+		// },
+		// taskToComplete: function(task){
+		// 	// return $http.get('/api/tasks')
+		// },
+		// checkBox: function(task){
+		// 	// console.log("asdad",this.taskArray)
+		// 	// $scope.showCompleted = true
+		// 	this.launch()
+		// 	this.shake()
+		// 	// this.taskToComplete(task)
+		// 	return $http.put('/api/tasks/' + task.id, {done: !task.done})
+		// }
 	}
 })

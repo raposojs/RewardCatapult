@@ -32,7 +32,7 @@ app.controller('HomeCtrl', function($scope, $http, $state, $mdDialog, tasks, Hom
 	};
 
 	$scope.launch = function(task){
-		// return $http.get('api/tasks/servo')
+		return $http.get('api/tasks/servo')
 	}
 
 
@@ -52,6 +52,7 @@ app.controller('HomeCtrl', function($scope, $http, $state, $mdDialog, tasks, Hom
 	$scope.byebye = function(task){
 		task.shaky = false;
 		task.byebye = true;
+		$scope.launch()
 		$timeout(function(){return $scope.sendToComplete(task)}, 1000)
 	}
 
@@ -59,7 +60,7 @@ app.controller('HomeCtrl', function($scope, $http, $state, $mdDialog, tasks, Hom
 		task.complete = true;
 		$scope.showCompleted = true;
 		
-		$scope.launch()
+		
 	}
 
 	// $scope.testFunc = function(){
